@@ -38,9 +38,22 @@ function openInvitation(skip = false) {
   openingBusy = true;
   $('#open-invitation').disabled = true;
   if (skip || reducedMotion.matches) { finishOpening(); return; }
+  
+  // Step 1: Open envelope, lift seal, slide letter with initials C & H out
   opening.classList.add('is-opening');
-  openingTimers.push(setTimeout(() => opening.classList.add('opened'), 2400));
-  openingTimers.push(setTimeout(finishOpening, 5400));
+  
+  // Step 2: Open curtains to green satin bg and reveal the Wedding Invitation Card
+  openingTimers.push(setTimeout(() => {
+    opening.classList.add('opened');
+  }, 2400));
+  
+  // Step 3: Card begins gentle closing transition
+  openingTimers.push(setTimeout(() => {
+    opening.classList.add('card-closing');
+  }, 5100));
+  
+  // Step 4: Reveal hero page
+  openingTimers.push(setTimeout(finishOpening, 5700));
 }
 $('#open-invitation').addEventListener('click', () => openInvitation());
 $('.envelope-seal')?.addEventListener('click', () => openInvitation());
@@ -61,7 +74,7 @@ $('#replay').addEventListener('click', () => {
   openingTimers.forEach(clearTimeout);
   openingBusy = false;
   keepsakeCollage?.classList.remove('in-view');
-  opening.classList.remove('dismissed', 'opened', 'is-opening');
+  opening.classList.remove('dismissed', 'opened', 'is-opening', 'card-closing');
   opening.inert = false;
   opening.removeAttribute('aria-hidden');
   main.inert = true; closeMenu(); menuToggle.hidden = true; $('.desktop-art').inert = true;
