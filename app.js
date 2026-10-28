@@ -29,6 +29,7 @@ function finishOpening() {
   opening.setAttribute('aria-hidden', 'true');
   opening.inert = true;
   main.focus({ preventScroll: true });
+  $$('.hero-bouquet-top, .hero-bouquet-bottom').forEach(el => el.classList.add('visible'));
   openingBusy = false;
 }
 function openInvitation(skip = false) {
@@ -88,7 +89,7 @@ const revealObserver = new IntersectionObserver(entries => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
   });
 }, { threshold: .08, rootMargin: '0px 0px -15px 0px' });
-$$('.reveal, .reveal-scale, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+$$('.reveal, .reveal-scale, .reveal-left, .reveal-right, .hero-bouquet-top, .hero-bouquet-bottom, .couple-knot-ornament, .portrait-flower, .events-peony, .events-tulip, .story-peony, .closing-fan').forEach(el => revealObserver.observe(el));
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
