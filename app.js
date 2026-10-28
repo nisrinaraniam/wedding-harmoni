@@ -39,8 +39,8 @@ function openInvitation(skip = false) {
   $('#open-invitation').disabled = true;
   if (skip || reducedMotion.matches) { finishOpening(); return; }
   opening.classList.add('is-opening');
-  openingTimers.push(setTimeout(() => opening.classList.add('opened'), 2700));
-  openingTimers.push(setTimeout(finishOpening, 4100));
+  openingTimers.push(setTimeout(() => opening.classList.add('opened'), 2400));
+  openingTimers.push(setTimeout(finishOpening, 5400));
 }
 $('#open-invitation').addEventListener('click', () => openInvitation());
 $('.envelope-seal')?.addEventListener('click', () => openInvitation());
