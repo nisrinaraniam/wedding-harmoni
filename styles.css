@@ -7,11 +7,10 @@
 .transition-card-inner{background:#faf5ea;border:1px solid #c4b08b;box-shadow:0 0 0 5px rgba(248,242,229,.4),0 16px 45px rgba(5,20,15,.5);padding:28px 22px 24px;text-align:center;max-width:255px;width:72%;position:relative;border-radius:3px}
 .transition-card-inner:before{content:'';position:absolute;inset:6px;border:1px dashed #c4b08b88;pointer-events:none}
 .transition-card .eyebrow{font-size:7px;letter-spacing:.24em;color:#856e58;margin-bottom:8px;display:block}
-.transition-names{font-size:48px;line-height:.88;color:#184534;margin:4px 0}
-.transition-names em{display:block;font-size:24px;font-style:normal;color:#b15a47;margin:2px 0}
 .transition-rule{width:34px;height:1px;background:#c4b08b;margin:10px auto}
-.transition-date{font-family:var(--serif);font-size:12.5px;letter-spacing:.12em;color:#493850;text-transform:uppercase;margin:6px 0 2px}
-.transition-location{font:7.5px var(--sans);letter-spacing:.2em;color:#78624d;text-transform:uppercase}
+.transition-message{font-family:var(--serif);font-size:16px;font-style:italic;line-height:1.45;color:#244b3e;margin:6px 0 8px}
+.transition-initials{display:block;font-family:var(--script);font-size:50px;line-height:1;color:#184534;margin:4px 0 0}
+.transition-initials em{font-size:26px;font-style:normal;color:#b15a47;margin:0 4px}
 .opening.opened .transition-card{opacity:1;transform:scale(1);pointer-events:auto}
 .opening.card-closing .transition-card{opacity:0;transform:scale(1.05);transition:opacity .5s ease,transform .5s ease}
 .opening.dismissed .transition-card{opacity:0;display:none}

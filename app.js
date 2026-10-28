@@ -58,7 +58,7 @@ function openInvitation(skip = false) {
 $('#open-invitation').addEventListener('click', () => openInvitation());
 $('.envelope-seal')?.addEventListener('click', () => openInvitation());
 $('.envelope-motion')?.addEventListener('click', () => openInvitation());
-$('#skip-opening').addEventListener('click', () => openInvitation(true));
+$('#skip-opening')?.addEventListener('click', () => openInvitation(true));
 $('.skip-link').addEventListener('click', () => openInvitation(true));
 opening.addEventListener('keydown', event => {
   if (event.key === 'Escape') openInvitation(true);
