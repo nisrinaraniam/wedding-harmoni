@@ -39,21 +39,21 @@ function openInvitation(skip = false) {
   $('#open-invitation').disabled = true;
   if (skip || reducedMotion.matches) { finishOpening(); return; }
   
-  // Step 1: Open envelope (0ms), flap swings open, letter with C & H rises to the topmost layer
+  // Step 1: Open envelope, lift seal, slide letter with initials C & H out
   opening.classList.add('is-opening');
   
-  // Step 2: Open curtains to green satin bg with compact loading card (at 950ms)
+  // Step 2: Open curtains to green satin bg and reveal the Wedding Invitation Card (shortened to 1350ms)
   openingTimers.push(setTimeout(() => {
     opening.classList.add('opened');
-  }, 950));
+  }, 1350));
   
-  // Step 3: Card begins quick fade out (at 2050ms — card shown for 1.1s like a real loading state)
+  // Step 3: Card begins gentle closing transition (at 2850ms)
   openingTimers.push(setTimeout(() => {
     opening.classList.add('card-closing');
-  }, 2050));
+  }, 2850));
   
-  // Step 4: Reveal hero page (at 2350ms)
-  openingTimers.push(setTimeout(finishOpening, 2350));
+  // Step 4: Reveal hero page (at 3350ms - total duration shortened from 5.7s to 3.3s!)
+  openingTimers.push(setTimeout(finishOpening, 3350));
 }
 $('#open-invitation').addEventListener('click', () => openInvitation());
 $('.envelope-seal')?.addEventListener('click', () => openInvitation());
