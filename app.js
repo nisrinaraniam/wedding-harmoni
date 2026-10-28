@@ -11,6 +11,7 @@ menuToggle.addEventListener('click', () => { const open = navigation.hidden; nav
 navigation.addEventListener('click',e=>{ if (e.target.closest('a')) closeMenu(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!navigation.hidden) closeMenu(true); });
 document.addEventListener('click',e=>{ if(!navigation.hidden&&!navigation.contains(e.target)&&!menuToggle.contains(e.target)) closeMenu(); });
+const keepsakeCollage = $('#keepsake-collage');
 let openingBusy = false;
 let openingTimers = [];
 let lastPhotoButton = null;
@@ -59,6 +60,7 @@ $('#replay').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'instant' });
   openingTimers.forEach(clearTimeout);
   openingBusy = false;
+  keepsakeCollage?.classList.remove('in-view');
   opening.classList.remove('dismissed', 'opened', 'is-opening');
   opening.inert = false;
   opening.removeAttribute('aria-hidden');
@@ -87,6 +89,19 @@ const navObserver = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
 $$('main section, main footer').forEach(el => navObserver.observe(el));
+
+
+if (keepsakeCollage) {
+  const keepsakeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        keepsakeCollage.classList.add('in-view');
+        keepsakeObserver.unobserve(keepsakeCollage);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -30px 0px' });
+  keepsakeObserver.observe(keepsakeCollage);
+}
 
 const weddingTime = new Date('2028-03-08T10:00:00+07:00').getTime();
 function updateCountdown() {
