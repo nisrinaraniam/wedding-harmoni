@@ -1,0 +1,130 @@
+{
+  "style": "Semi-classic romantic photographic collage; Peranakan Bloom",
+  "palette": {
+    "jade": "#217345",
+    "vermilion": "#E34B3B",
+    "blue": "#5275AC",
+    "mint": "#D6E5DB",
+    "blush": "#F3DEDC",
+    "lilac": "#AA88B0",
+    "champagne": "#E6CDB7"
+  },
+  "layers": [
+    {
+      "object": "satin curtains",
+      "assets": [
+        "01-background-satin.webp"
+      ],
+      "depth": 0,
+      "anchor": "left/right outside edge",
+      "entrance": "initial backdrop",
+      "idle": "none",
+      "exit": "two independent curtain panels slide outward after flap reveal",
+      "mobile": "same scene, portrait proportions"
+    },
+    {
+      "object": "envelope body",
+      "assets": [
+        "02-envelope-body.webp"
+      ],
+      "depth": 3,
+      "anchor": "center",
+      "entrance": "visible on load",
+      "idle": "none",
+      "exit": "scene fades after letter emerges",
+      "mobile": "90% scene width"
+    },
+    {
+      "object": "envelope flap",
+      "assets": [
+        "03-envelope-flap.webp"
+      ],
+      "depth": 5,
+      "anchor": "50% 18.75% (paper hinge inside transparent canvas)",
+      "entrance": "closed over body",
+      "exit": "rotateX 165deg; separate PNG layer; 1.15sec",
+      "mobile": "89.8% of body image width"
+    },
+    {
+      "object": "wax seal",
+      "assets": [
+        "04-wax-seal.webp"
+      ],
+      "depth": 6,
+      "anchor": "center",
+      "exit": "down 45px, rotate15deg, fade; before flap turns",
+      "mobile": "17% envelope width"
+    },
+    {
+      "object": "mini peony / tulip",
+      "assets": [
+        "16-peony-mini.webp",
+        "17-tulip-mini.webp"
+      ],
+      "depth": 7,
+      "anchor": "50% 83%",
+      "idle": "rotate -1.5 to1.7deg, 9sec",
+      "exit": "independent side translation",
+      "scroll": "reused as edge accents",
+      "mobile": "31–34% cover scene width"
+    },
+    {
+      "object": "lanterns",
+      "assets": [
+        "09-lampion-peranakan.webp",
+        "09b-lampion-mint.webp"
+      ],
+      "depth": 1,
+      "anchor": "Top of visible cord, attached to a fixed brass rosette on a continuous jade-gold mounting rail.",
+      "idle": "Cord and pendant rotate together as a single swing assembly; the rail and rosette remain fixed.",
+      "mobile": "100px cover width, reduce corner footprint"
+    },
+    {
+      "object": "jade knot",
+      "assets": [
+        "11-chinese-knot-jade.webp"
+      ],
+      "depth": 3,
+      "anchor": "Top of visible cord, attached to a fixed brass rosette on a continuous jade-gold mounting rail.",
+      "idle": "Cord and pendant rotate together as a single swing assembly; the rail and rosette remain fixed.",
+      "mobile": "73–87px"
+    },
+    {
+      "object": "keepsake",
+      "assets": [
+        "18-keepsake-frame-jade.webp",
+        "13-keepsake-date-card.webp",
+        "14-keepsake-silver-tray.webp",
+        "15-keepsake-pearls.webp",
+        "19-fan-vermilion.webp",
+        "20-double-happiness-red.webp",
+        "05-bouquet-stems.webp"
+      ],
+      "depth": "1 pearls; 2 frame/fan; 3 tray; 4 date; 5 symbol; 6 polaroids; 7 bouquet",
+      "anchor": "independent absolute positions",
+      "entrance": "layer-specific position and tilt with scroll reveal",
+      "idle": "only bouquet gently sways",
+      "mobile": "collage scales from 650px to550px height, type size adjusted"
+    },
+    {
+      "object": "lace/porcelain picture frames",
+      "assets": [
+        "08-lace-frame.webp",
+        "12-keepsake-frame.webp"
+      ],
+      "depth": 2,
+      "anchor": "center",
+      "entrance": "scroll reveal",
+      "interaction": "gallery image button opens modal",
+      "mobile": "responsive fixed-ratio portrait frames"
+    }
+  ],
+  "accessibility": "prefers-reduced-motion disables all animation and opens immediately; keyboard opening skip and modal Escape; stable native scrolling",
+  "heroBackground": "Same blue satin asset and tint as cover: 01-background-satin.webp",
+  "hangingFixtures": {
+    "count": 6,
+    "rails": 4,
+    "unmountedHangingObjects": 0,
+    "implementation": "CSS jade/gold rail, decorative medallion, fixed mount, visible cord, independent swinging pendant"
+  }
+}

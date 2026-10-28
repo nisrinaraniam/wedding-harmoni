@@ -1,0 +1,197 @@
+{
+  "assets": [
+    {
+      "name": "01-background-satin.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-dea1b32d-1179-4534-b9ac-af5fd05564ce.png"
+    },
+    {
+      "name": "02-envelope-body.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-4c7584a6-0c6f-4cc1-a6f4-532a73098995.png"
+    },
+    {
+      "name": "03-envelope-flap.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-7c4f353c-a76c-440b-ad6f-51ff3774854b.png"
+    },
+    {
+      "name": "04-wax-seal.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-2edb84c9-95f0-4c50-a377-574daebcb2de.png"
+    },
+    {
+      "name": "07-fan-coral.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-45a0658d-046e-4c21-a9ba-0bdd87d2a39e.png"
+    },
+    {
+      "name": "08-lace-frame.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-d7b4904d-384c-453b-b22f-0d8be3ee7c9a.png"
+    },
+    {
+      "name": "09-lampion-peranakan.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-54b4f8cc-129c-4e6b-99a8-c944b1ef36e3.png"
+    },
+    {
+      "name": "10-double-happiness.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-b876f97f-0010-4950-acc2-cd5cba255f5d.png"
+    },
+    {
+      "name": "11-chinese-knot-jade.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-cc8569e9-861c-48de-9deb-ae156553b3b2.png"
+    },
+    {
+      "name": "12-keepsake-frame.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-45ac4dcf-fc84-446e-a928-9e4274ed901e.png"
+    },
+    {
+      "name": "13-keepsake-date-card.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-744898a0-1b5b-40ec-9ba9-aeda7e684fe8.png"
+    },
+    {
+      "name": "16-peony-mini.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-8b6aff5f-a56f-4b9f-8a84-8895ae5a10ba.png"
+    },
+    {
+      "name": "17-tulip-mini.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-4aff7473-0536-4f39-a5a0-29bbd40dd532.png"
+    },
+    {
+      "name": "18-keepsake-frame-jade.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-4eadcc76-9fa3-41a5-b7dc-9bea901f9d95.png"
+    },
+    {
+      "name": "19-fan-vermilion.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-b425e50a-58f7-454c-98d5-72086b09a6d0.png"
+    },
+    {
+      "name": "20-double-happiness-red.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-ccce5a38-217f-4378-aaf7-e4902844eab2.png"
+    },
+    {
+      "name": "05-bouquet-stems.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-d9c79493-9152-4897-bfd5-571eaf04a997.png"
+    },
+    {
+      "name": "09b-lampion-mint.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-f169e0fd-4c42-4ffb-a610-6c3e5267993d.png"
+    },
+    {
+      "name": "14-keepsake-silver-tray.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-87cba7d1-d287-47f1-9659-1fbc7495fa4e.png"
+    },
+    {
+      "name": "15-keepsake-pearls.png",
+      "source": "C:\\Users\\rania\\.codex\\generated_images\\01a17dc1-0319-7433-9634-19f54a76043c\\exec-8fe44f7a-26d4-468b-ba98-b5136390bd91.png"
+    }
+  ],
+  "prompts": [
+    {
+      "file": "01-background-satin.png",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Production background layer ONLY for an animated semi-classic Peranakan Bloom wedding invitation, portrait 9:16. Photorealistic dusty porcelain-blue silk satin drapery filling entire image, elegant large vertical flowing folds, gently pooled near bottom, refined highlights and rich blue-gray shadows, softly lit center slightly lighter and calmer for future text. Main palette dusty porcelain blue #5275AC with silvery blue #96AFC5 highlights. Romantic vintage editorial photograph. Single continuous cloth backdrop. Absolutely NO flowers, NO envelope, NO frame, NO lace, NO props, NO text, NO border, NO wall, NO stage. This image is ONLY satin, so other interactive objects can be layered separately later. Full bleed opaque background."
+    },
+    {
+      "file": "02-envelope-body.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE isolated asset for a layered animated wedding invitation: front body of an ivory textured paper envelope, WITHOUT its top closing flap and WITHOUT a seal. TRUE transparent PNG background, all exterior empty pixels transparent. Landscape 3:2 canvas, straight frontal orthographic view, no rotation, no perspective. Envelope is centered, a precise horizontal rectangle, approximately x=10% to90%, y=20% to80% of canvas. Warm champagne ivory cotton paper #F5EBDC, subtle realistic fiber texture, folded diagonal side seams and lower pocket seam, a very thin dusty-mint lining visible along the straight open top lip. The envelope pocket is closed at bottom and sides, top edge exactly horizontal. NO triangular top flap: it will be another independently animated asset. Photorealistic antique stationery cutout, minimal shadow contained to paper surface. Entire object within canvas with generous transparent margin. Nothing else. NO flowers, NO wax seal, NO lace outside rectangle, NO fan, NO porcelain, NO text, NO background color, NO tabletop, NO fake checkerboard. This is just an open-top envelope BODY layer ready to overlay a separate flap."
+    },
+    {
+      "file": "03-envelope-flap.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single isolated animation asset: ONLY the downward-pointing triangular closing FLAP from a classic ivory wedding envelope. True transparent background. Landscape 3:2 canvas. Straight frontal orthographic view, zero rotation. Shape is a broad isosceles triangle with a perfectly horizontal top hinge edge and softly rounded bottom tip; width-to-height ratio of the actual triangle 2.6:1. Entire triangle fits centered with generous transparent margins. Warm ivory champagne cotton paper, subtle photographic paper fiber texture. Very fine scalloped ivory kebaya-inspired floral embroidery lace trimming ONLY the two sloped edges, pale mint understated stitching. Upper hinge edge is plain and straight. Match realistic antique stationery. NO envelope body, NO rectangle under the triangle, NO back paper, NO seal, NO flowers, NO objects, NO text, NO scene, NO surface, NO background, NO fake checkerboard. Just ONE downward triangular flap alone, whose upper straight edge can become a rotation hinge in animation. Real photographic cutout, not illustration. Clean edges, shadow only on material itself."
+    },
+    {
+      "file": "04-wax-seal.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One isolated small round dusty lilac wax seal for a semi-classic Peranakan Bloom wedding invitation. True transparent PNG background. Square canvas. Front-on orthographic photograph of lavender-mauve #AA88B0 wax seal, soft irregular handmade circular rim, detailed pressed relief of a single peony bloom at center, subtle wax sheen and dimensional soft shadows on wax. Seal occupies 65 percent of canvas width, centered with generous transparent margins. Refined romantic vintage stationery, realistic material. NO letters, NO monogram, NO envelope, NO ribbon, NO flowers outside seal, NO other props, NO background surface, NO fake checkerboard, NO watermark. One standalone seal only, suitable for independently animating away from an envelope."
+    },
+    {
+      "file": "05-floral-left.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single standalone PHOTOREALISTIC floral cutout arrangement for a semi-classic Peranakan Bloom wedding invitation collage. True transparent PNG background. Portrait 2:3 canvas. A graceful asymmetric cluster designed for the upper-left corner of a paper envelope: one large blush pink peony, two lilac phalaenopsis orchid blooms, small white jasmine flowers and buds, delicate jade green leaves. Main blooms in upper-middle, fine stems and jasmine cascade diagonally down toward right. Soft natural studio lighting, crisp real petal textures, romantic antique botanical photography, realistic color, not painted, not embroidered. Palette blush #F3DEDC lilac #AA88B0 creamy white with jade foliage. Entire arrangement fully inside canvas, 10 percent clear margin, no cropped stems. ONE coherent bunch only. No vase, no wrapping, no ribbon, no paper, no envelope, no frame, no pearls, no fan, no other object, no text, no backdrop, no floor, no shadow outside silhouette, no fake checkerboard. Individually movable transparent floral layer."
+    },
+    {
+      "file": "06-floral-right.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single standalone PHOTOREALISTIC floral cutout arrangement for a semi-classic Peranakan Bloom wedding invitation collage. True transparent PNG background. Portrait 2:3 canvas. A graceful elongated cascading spray for the lower-right corner of a paper envelope: two soft peach phalaenopsis orchid blooms near the top center, one smaller blush peony to their side, a few lilac blooms, tiny white jasmine flowers and buds along fine dangling stems, restrained deep jade green leaves. Composition widest in top half and tapers to delicate hanging jasmine toward bottom left. Soft natural studio lighting, crisp real petal textures, romantic antique botanical photography, not painted, not embroidered. Palette peach champagne #E6CDB7 blush #F3DEDC lilac #AA88B0 creamy white and jade foliage. Entire arrangement fully visible with 10 percent clear transparent padding, no crop. ONE coherent bunch. No vase, no ribbon, no paper, no envelope, no frame, no pearls, no fan, no props, no text, no background, no floor, no shadow outside object, no fake checkerboard. Individually movable transparent floral layer."
+    },
+    {
+      "file": "07-fan-coral.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Single isolated PHOTOREALISTIC antique Chinese folding hand fan, open in a graceful semicircle, for a semi-classic Peranakan Bloom wedding invitation collage. True transparent PNG background. Landscape 3:2 canvas. Full fan in straight front-facing view, pivot centered low, whole fan visible with 10 percent transparent padding all around. Muted soft coral peach #DB9687 paper, delicately hand-painted tiny blush peony and white jasmine sprigs with mint leaves across the paper, thin natural pale bamboo ribs, refined vintage texture, soft studio highlights. It must look like a photographed tangible object, not a flat graphic or illustration. One fan only. No flowers outside fan, no ribbon, no tassel, no hand, no envelope, no plate, no paper backdrop, no tabletop, no scene, no text, no lettering, no watermark, no fake checkerboard. Transparent background for separate pivot animation."
+    },
+    {
+      "file": "08-lace-frame.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. One standalone OVAL LACE FRAME asset for semi-classic wedding invitation collage. True transparent PNG background BOTH outside AND THROUGH CENTER. Portrait 2:3 canvas. An elegant tall oval ring of fine antique ivory cotton lace with repeating small scallops and delicate jasmine floral threadwork inspired by kebaya embroidery. Photorealistic textile cutout, real raised tiny stitches and openwork holes, gentle ivory champagne #F4E7D4 tones, airy fine lace, not thick carved wood, not metal, no colored line. Border approximately 8 percent of image width. Frame centered and fully contained with 7 percent clear padding. Oval center is COMPLETELY EMPTY AND TRANSPARENT, no card, no paper insert, no fabric inside, so it can overlay text, a separate colored panel, or a portrait. Absolutely NO attached flowers, NO bouquets, NO envelope, NO pearls, NO background cloth, NO other props, NO text, NO monogram, NO fake checkerboard. Only one delicate oval lace ring isolated."
+    },
+    {
+      "file": "09-lampion-peranakan.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Create ONE isolated exquisite Chinese hanging lantern as a PHOTOREALISTIC cutout asset for a semi-classic Peranakan Bloom digital wedding invitation. True transparent PNG background. Portrait canvas 2:3. Single elegant softly rounded oval ribbed silk lantern, seen almost front-on with subtle realistic volume. Warm ivory fine silk surface delicately painted with restrained porcelain-blue floral vines and two petite peach/blush peony blossoms, little muted mint leaves. Slender antique champagne metal rim details, not excessive gold. Small top hanging loop and a long fine dusty mint silk tassel below, with ONE small pale lilac ceramic bead just above the tassel. Luminous softly lit silk, refined handcrafted collectible quality, romantic vintage editorial product photography, natural material textures, premium rather than cartoon. Color family blue #5275AC, mint #D6E5DB, blush #F3DEDC, peach/champagne #E6CDB7, subtle lilac #AA88B0. Main lantern body about 45 percent of total silhouette height, hanging cord and tassel make it gracefully elongated. Entire object fully contained inside frame with 10 percent clear transparent margin on ALL sides, especially tassel tips and top loop. One lantern only. No architecture, no room, no background, no outside flowers, no frame, no envelope, no people, no text or Chinese characters on lantern, no logo, no watermark, no floor shadow, no fake checkerboard. True transparent gaps around hanging cord and tassel strands. Ready for gentle independent swinging animation."
+    },
+    {
+      "file": "10-double-happiness.png",
+      "transparent": true,
+      "prompt": "Use case: logo-brand. Create ONE isolated elegant Chinese DOUBLE HAPPINESS wedding ornament. EXACT central glyph must be the authentic traditional Chinese character \"囍\", correctly constructed as two symmetrical adjacent \"喜\" components. It is an ornamental wedding/sangjit paper-cut symbol, NOT invented lettering. Shape must be immediately legible as 囍 with correct strokes, open counters, straight horizontal bars and balanced symmetry. Front-facing orthographic view. Premium tactile embossed thick handmade paper, soft dusty peach-coral #D79789 main surface and very thin muted champagne gilded bevel edge, subtle ivory highlights. Refined semi-classic Peranakan Bloom wedding stationery look, soft photorealistic product lighting, no cartoon or glitter. The character alone occupies central 65 percent of a square transparent canvas, generous padding, full silhouette visible. TRUE ALPHA TRANSPARENCY outside and in ALL open spaces between strokes. NO circular plaque behind, NO enclosing medallion, NO background panel, NO frame, NO flowers, NO cords, NO tassels, NO other characters, NO Latin text, NO scene, NO watermark, NO fake checkerboard, NO cast shadow on a surface. One standalone readable 囍 only, individually placeable over satin, envelope or card."
+    },
+    {
+      "file": "12-keepsake-frame.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE standalone ornate antique PORTRAIT PICTURE FRAME for a semi-classic romantic Peranakan wedding keepsake scrapbook collage. True transparent PNG background OUTSIDE frame and THROUGH central opening. Portrait 2:3 canvas. Straight front-on view, no perspective, upright rectangular frame with slightly scalloped outer edges and rounded oval inner photo opening. Refined antique carved wood painted dusty porcelain blue #5275AC with gentle aged champagne highlights, fine embossed peony-vine and delicate kebaya lace-like flourishes around border, romantic vintage collectible feel. Moderately elaborate filigree but not heavy architectural carving, no doorway, no arch portal. Keep main central window fully empty transparent and about 65 percent of object width, spacious for couple names or photo later. Physical object looks tactile and photorealistic, not graphic illustration. Entire frame silhouette visible with 8 percent clear margin. No photo, no backing, no card in center, no names, no monogram, no attached real flowers, no envelope, no pearls, no other objects, no backdrop, no floor, no watermark, no fake checkerboard. ONE antique frame alone with genuine alpha cutouts."
+    },
+    {
+      "file": "13-keepsake-date-card.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE isolated luxury wedding keepsake DATE CARD, a tall scalloped oval paper medallion. True transparent PNG background outside card. Portrait 2:3 canvas. Front-on flat-lay photographic cutout, no rotation. Thick textured fine-art cotton paper in muted pastel LILAC #C6B1CB, delicate slightly raised ivory double-line border following small graceful scallops around entire perimeter, subtle thin champagne edge. Extremely refined antique wedding stationery, semi-classic romantic Peranakan Bloom palette. One tiny embossed jasmine detail centered at very top border only, no colored flower bouquet. The entire middle is blank uninterrupted lilac writing space, generous 70 percent of card area for date text to be added separately. No text whatsoever, no numbers, no monogram, no ribbon, no real flowers, no fan, no pearl, no envelope, no scenery, no watermark. Full card silhouette with 10 percent transparent margins all around. Paper itself opaque, outside genuinely alpha-transparent, no fake checkerboard. Premium tactile real material with soft studio lighting."
+    },
+    {
+      "file": "16-peony-mini.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE tiny elegant floral CORNER ORNAMENT for a semi-classic Peranakan Bloom digital wedding invitation envelope. TRUE transparent PNG background. A SINGLE blush-pink PEONY bud, partly opened enough to reveal fine ruffled layered petals but still small compact rounded cup, not a fully spread giant flower. One short delicate natural stem, just TWO slender dusty jade leaves. Add ONE very thin softly curved trailing sprig bearing only FOUR tiny ivory-white bell flowers, a delicate dangling accent. Main peony head is the focal point, little bells are secondary and very small. A refined minimal floral sprig, NOT a bouquet, no clusters, no extra large flowers. Diagonal composition designed to sit at the upper-left corner of an ivory envelope; one leaf points upward and the tiny bell sprig curves gracefully to the side and down. Photorealistic fresh botanical cutout, soft luxury wedding editorial light, natural satin petal texture, gentle palette blush #F3DEDC with slightly deeper pink petal folds, pale ivory and soft jade. Entire arrangement fits within central 70 percent of portrait 2:3 canvas with ample transparent negative space. All petal edges and stem ends fully visible. No flower pot, no wrapping, no ribbon, no envelope, no background, no scene, no vase, no text, no watermark, no fake checkerboard, no shadows outside the silhouette. ONE peony bud and minimal tiny trailing accent only, independently animatable PNG."
+    },
+    {
+      "file": "17-tulip-mini.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE tiny elegant floral CORNER ORNAMENT for a semi-classic Peranakan Bloom digital wedding invitation envelope. TRUE transparent PNG background. A SINGLE refined soft PEACH TULIP bud, almost closed with elegantly overlapping smooth satin petals and a gently pointed cup. One slim naturally curved green stem and just TWO narrow dusty jade tulip leaves, one upright and one gently bent. Add ONE very fine short ivory-white jasmine sprig with only THREE tiny blossoms/buds hanging softly downward beside the stem, minimal and airy. Main tulip is the single focal bloom. This is a delicate petite sprig, NOT a bouquet, no flower clusters, no additional tulips or large flowers, no huge leaves, no massive cascading amaranthus. Diagonal asymmetrical silhouette suitable for the lower-right corner of an ivory stationery envelope. Photorealistic fresh botanical cutout, premium romantic wedding editorial photography, subtle soft highlights, natural peach champagne petals #E6CDB7 with blush #F3DEDC tinges, tiny ivory detail, subdued green leaves. Entire silhouette including stem tips within middle 70 percent of portrait 2:3 canvas, plenty of transparent padding. No vase, no wrapping, no ribbon, no envelope, no surface, no background, no scene, no text, no watermark, no fake checkerboard, no exterior cast shadow. One tulip bud with a very small trailing accent only, independently animatable PNG."
+    },
+    {
+      "file": "18-keepsake-frame-jade.png",
+      "transparent": true,
+      "refs": [
+        "C:/Users/rania/.codex/generated_images/01a17dc1-0319-7433-9634-19f54a76043c/exec-45ac4dcf-fc84-446e-a928-9e4274ed901e.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Recolor this exact vintage keepsake portrait frame for the same semi-classic Peranakan wedding collection. Preserve EXACT shape, ornate peony and filigree carving, oval empty window, framing, scale, perspective and realistic material detail. Change its blue painted wooden base to rich saturated EMERALD JADE GREEN #217345, reflecting the vivid dark green Peranakan wedding-decor panels in the user's reference. Do not use pastel mint or washed-out sage. Keep fine raised floral details warm antiqued champagne gold and ivory, with very tiny CORAL VERMILION RED #E34B3B painted accents on a few small floral centers only, restrained. Photorealistic sophisticated antique painted wood ornament, no neon. No extra objects, no scene, no text. Preserve TRUE transparent alpha background both outside frame and through empty oval center. Fully visible silhouette and original margin."
+    },
+    {
+      "file": "19-fan-vermilion.png",
+      "transparent": true,
+      "refs": [
+        "C:/Users/rania/.codex/generated_images/01a17dc1-0319-7433-9634-19f54a76043c/exec-45a0658d-046e-4c21-a9ba-0bdd87d2a39e.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Recolor this exact isolated antique Chinese folding fan into a richer Peranakan wedding accent. Preserve fan shape, open semicircle, thin bamboo ribs, delicate painted peony and jasmine floral motifs, composition, front-on view, entire silhouette and realistic physical materials. Change the pale peach paper ground to vivid elegant CORAL VERMILION RED #E34B3B, like bright red fans in Peranakan Bloom event decor, clearly bright red not pastel pink, not burgundy. Floral peonies remain soft blush/ivory against red. Recolor painted leaf details to rich JADE GREEN #217345 and a little porcelain blue #5275AC, keeping them small and refined. Bamboo stays natural pale champagne wood. Premium tactile vintage fan photography, saturated but not neon, graceful traditional wedding accent. Exactly one fan, no other props. Preserve TRUE ALPHA transparency outside fan and in actual open gaps, no background or scene, no text or watermark."
+    },
+    {
+      "file": "20-double-happiness-red.png",
+      "transparent": true,
+      "refs": [
+        "C:/Users/rania/.codex/generated_images/01a17dc1-0319-7433-9634-19f54a76043c/exec-b876f97f-0010-4950-acc2-cd5cba255f5d.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Change ONLY the main surface color of this exact Chinese double happiness 囍 ornament from dusty peach to elegant vivid VERMILION RED #E34B3B. Preserve the exact authentic glyph shape, all strokes, open counters, dimensions, front view, fine paper texture, thin muted champagne gold beveled edge, realistic subtle highlights, framing and margin. Traditional celebratory bright red wedding/sangjit accent matching jade green and porcelain blue Peranakan Bloom palette. Red must be clearly rich and bright, not burgundy, pink or pastel. One symbol only. Preserve genuine alpha transparency outside and between all strokes. No backing plaque, no cords, no extra symbols or letters, no scene, no watermark."
+    },
+    {
+      "file": "11-chinese-knot-jade.png",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. ONE isolated luxurious Chinese decorative knotted-cord hanging ornament for a Peranakan Bloom wedding invitation collage. True transparent PNG background. Portrait 2:3 canvas. Elegant woven symmetrical traditional Chinese decorative knot made of rich JADE GREEN #217345 silky cord with small loop at top, a single small polished VERMILION RED #E34B3B bead underneath the knot and one graceful long fine jade silk tassel hanging below. Very small antique champagne-gold bead collars, restrained. Compact diamond-shaped interwoven knot clearly shows real cord crossings. Soft realistic silk sheen, refined handcrafted material, premium vintage wedding editorial product photograph, no cartoon. Total ornament narrow and elongated, entire top loop and all tassel tips visible with 12 percent transparent margins, no cropping. Exactly one complete hanging knot ornament, no backdrop, no wall, no lantern, no envelope, no flowers, no letters or symbols, no text, no watermark, no fake checkerboard, no exterior shadow. Transparent gaps between cord loops and tassel threads. Fits with pastel lilac peach flowers and porcelain-blue satin, beautiful saturated green and red accents."
+    },
+    {
+      "file": "05-bouquet-stems.png",
+      "prompt": "Use case: precise-object-edit. Input 1 is the TARGET compact bouquet PNG. Input 2 is a STYLE REFERENCE only: look specifically at the elegant long trailing stems of the floral accents beside the lace oval, not the paper frame, text or drapes.\nEdit input 1 by ADDING beautiful visible stems underneath the existing compact flower-head cluster so it looks like a luxurious refined florist's hand-tied bouquet, like the reference's elegant elongated floral accents. PRESERVE the existing flower recipe and palette: one blue hydrangea head, two lilac orchid blooms, two peach roses, tiny white jasmine and restrained green leaves. Keep existing flower heads similar size relative to one another, do not add more large blossoms, do not make the flower-head cluster denser.\nExtend a graceful natural bundle of slender green flower stems downward from under the existing bouquet, stems elegantly gathered at the upper stem section then slightly separating, with realistic neatly cut ends visible. Add only TWO thin delicate trailing dusty-mauve amaranthus-like floral tassel stems along one side, inspired by the long hanging accents in input 2, and one tiny curved jasmine stem, very restrained. No wrapping, no vase, no extra ribbon, no bulky foliage. The existing flower heads occupy approximately the upper 55 to 60 percent of total bouquet height; attractive visible stems and two delicate tassel trails occupy the lower 40 to 45 percent. Overall elegant vertically elongated bouquet silhouette, not huge floral installation, minimal but luxurious.\nPhotorealistic fresh botanical wedding editorial cutout, soft lighting, fine petal detail and natural stems, airy Peranakan Bloom palette. Portrait 2:3 canvas with all petals, tips and cut ends fully visible and 10 percent true transparent padding. TRUE ALPHA TRANSPARENT background, including gaps between stems. No shadows outside silhouette, no background color, no surface, no paper, no lace frame, no envelopes, no text, no watermark, no fake checkerboard. One independently usable bouquet asset only."
+    },
+    {
+      "file": "09b-lampion-mint.png",
+      "prompt": "Use case: precise-object-edit. Edit the attached lantern asset into ONE coordinated alternate COLORWAY for the same semi-classic Peranakan Bloom wedding invitation collection. Preserve the exact lantern silhouette, rounded ribbed silk construction, realistic material detail, champagne metal fittings, hanging loop, placement, illustration scale, long tassel and transparent PNG presentation. Change ONLY palette: the main silk lantern body becomes a refined PALE JADE MINT #C8DFCF, clearly mint rather than ivory. Painted floral vines stay porcelain blue #5275AC but slightly deeper for contrast; the two peony blossoms become soft pastel LILAC #BDA1C5 with subtle blush highlights. The top hanging cord becomes dusty peach. The small decorative bead beneath the lantern becomes milky pale lavender. The long bottom silk tassel becomes muted PEACH CHAMPAGNE #E6BFA9 instead of mint. Keep the antique champagne gold metal warm and understated. Premium romantic Peranakan collector lantern, soft dimensional studio lighting, tactile silk, photorealistic cutout, sophisticated muted colors, no neon. Exactly ONE lantern, no additional props or flowers outside the lantern. Entire hanging loop and tassel tips fully visible with transparent margin. TRUE ALPHA TRANSPARENT background and spaces between tassel strands. No scene, no floor, no backdrop, no letters, no text, no watermark, no fake checkerboard."
+    },
+    {
+      "file": "15-keepsake-pearls.png",
+      "prompt": "One loose strand small ivory pearls, graceful S curve upper loop, tiny champagne clasp, transparent background, photorealistic vintage wedding keepsake, portrait, no props."
+    }
+  ]
+}

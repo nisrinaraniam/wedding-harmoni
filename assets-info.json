@@ -1,0 +1,382 @@
+[
+  {
+    "name": "01-background-satin.webp",
+    "width": 900,
+    "height": 1600,
+    "alpha0": 0,
+    "totalPixels": 1440000,
+    "alphaMinMax": [
+      255,
+      255
+    ],
+    "bboxAlphaOver200": [
+      0,
+      0,
+      900,
+      1600
+    ],
+    "centerAlpha": 255,
+    "bytes": 107518
+  },
+  {
+    "name": "02-envelope-body.webp",
+    "width": 1200,
+    "height": 800,
+    "alpha0": 321690,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      72,
+      149,
+      1129,
+      730
+    ],
+    "centerAlpha": 253,
+    "bytes": 121294
+  },
+  {
+    "name": "03-envelope-flap.webp",
+    "width": 1200,
+    "height": 800,
+    "alpha0": 614174,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      12,
+      150,
+      1189,
+      674
+    ],
+    "centerAlpha": 252,
+    "bytes": 125018
+  },
+  {
+    "name": "04-wax-seal.webp",
+    "width": 1200,
+    "height": 1200,
+    "alpha0": 697281,
+    "totalPixels": 1440000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      108,
+      110,
+      1105,
+      1095
+    ],
+    "centerAlpha": 253,
+    "bytes": 254912
+  },
+  {
+    "name": "07-fan-coral.webp",
+    "width": 1200,
+    "height": 800,
+    "alpha0": 422105,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      16,
+      61,
+      1186,
+      751
+    ],
+    "centerAlpha": 252,
+    "bytes": 308290
+  },
+  {
+    "name": "08-lace-frame.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 620408,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      20,
+      43,
+      781,
+      1151
+    ],
+    "centerAlpha": 0,
+    "bytes": 358580
+  },
+  {
+    "name": "09-lampion-peranakan.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 731251,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      169,
+      15,
+      625,
+      1180
+    ],
+    "centerAlpha": 253,
+    "bytes": 123142
+  },
+  {
+    "name": "10-double-happiness.webp",
+    "width": 1200,
+    "height": 1200,
+    "alpha0": 729695,
+    "totalPixels": 1440000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      90,
+      124,
+      1110,
+      1084
+    ],
+    "centerAlpha": 0,
+    "bytes": 318252
+  },
+  {
+    "name": "11-chinese-knot-jade.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 809205,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      250,
+      19,
+      549,
+      1177
+    ],
+    "centerAlpha": 253,
+    "bytes": 121760
+  },
+  {
+    "name": "12-keepsake-frame.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 456204,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      19,
+      25,
+      782,
+      1174
+    ],
+    "centerAlpha": 0,
+    "bytes": 350060
+  },
+  {
+    "name": "13-keepsake-date-card.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 298104,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      15,
+      26,
+      784,
+      1173
+    ],
+    "centerAlpha": 253,
+    "bytes": 164862
+  },
+  {
+    "name": "16-peony-mini.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 716866,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      123,
+      123,
+      756,
+      984
+    ],
+    "centerAlpha": 253,
+    "bytes": 127464
+  },
+  {
+    "name": "17-tulip-mini.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 850825,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      286,
+      236,
+      676,
+      1080
+    ],
+    "centerAlpha": 253,
+    "bytes": 68908
+  },
+  {
+    "name": "18-keepsake-frame-jade.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 448771,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      19,
+      26,
+      782,
+      1175
+    ],
+    "centerAlpha": 0,
+    "bytes": 299792
+  },
+  {
+    "name": "19-fan-vermilion.webp",
+    "width": 1200,
+    "height": 800,
+    "alpha0": 417592,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      13,
+      57,
+      1188,
+      753
+    ],
+    "centerAlpha": 253,
+    "bytes": 271274
+  },
+  {
+    "name": "20-double-happiness-red.webp",
+    "width": 1200,
+    "height": 1200,
+    "alpha0": 698243,
+    "totalPixels": 1440000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      87,
+      122,
+      1113,
+      1087
+    ],
+    "centerAlpha": 0,
+    "bytes": 285292
+  },
+  {
+    "name": "05-bouquet-stems.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 548816,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      60,
+      37,
+      787,
+      1184
+    ],
+    "centerAlpha": 253,
+    "bytes": 230558
+  },
+  {
+    "name": "09b-lampion-mint.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 725882,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      170,
+      11,
+      626,
+      1183
+    ],
+    "centerAlpha": 253,
+    "bytes": 124874
+  },
+  {
+    "name": "14-keepsake-silver-tray.webp",
+    "width": 1200,
+    "height": 800,
+    "alpha0": 366878,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      23,
+      40,
+      1177,
+      759
+    ],
+    "centerAlpha": 253,
+    "bytes": 290040
+  },
+  {
+    "name": "15-keepsake-pearls.webp",
+    "width": 800,
+    "height": 1200,
+    "alpha0": 883529,
+    "totalPixels": 960000,
+    "alphaMinMax": [
+      0,
+      255
+    ],
+    "bboxAlphaOver200": [
+      143,
+      77,
+      707,
+      1137
+    ],
+    "centerAlpha": 0,
+    "bytes": 71058
+  }
+]
