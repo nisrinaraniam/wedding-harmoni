@@ -42,18 +42,18 @@ function openInvitation(skip = false) {
   // Step 1: Open envelope, lift seal, slide letter with initials C & H out
   opening.classList.add('is-opening');
   
-  // Step 2: Open curtains to green satin bg and reveal the Wedding Invitation Card (shortened to 1350ms)
+  // Step 2: Open curtains to green satin bg and reveal loading page (at 950ms right as flap finishes opening)
   openingTimers.push(setTimeout(() => {
     opening.classList.add('opened');
-  }, 1350));
+  }, 950));
   
-  // Step 3: Card begins gentle closing transition (at 2850ms)
+  // Step 3: Card begins gentle closing transition (at 2550ms)
   openingTimers.push(setTimeout(() => {
     opening.classList.add('card-closing');
-  }, 2850));
+  }, 2550));
   
-  // Step 4: Reveal hero page (at 3350ms - total duration shortened from 5.7s to 3.3s!)
-  openingTimers.push(setTimeout(finishOpening, 3350));
+  // Step 4: Reveal hero page (at 3050ms)
+  openingTimers.push(setTimeout(finishOpening, 3050));
 }
 $('#open-invitation').addEventListener('click', () => openInvitation());
 $('.envelope-seal')?.addEventListener('click', () => openInvitation());
@@ -88,7 +88,7 @@ const revealObserver = new IntersectionObserver(entries => {
     if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
   });
 }, { threshold: .08, rootMargin: '0px 0px -15px 0px' });
-$$('.reveal').forEach(el => revealObserver.observe(el));
+$$('.reveal, .reveal-scale, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 const navObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
