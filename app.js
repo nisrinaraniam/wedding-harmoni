@@ -184,21 +184,21 @@ function loadImage(src) { return new Promise((resolve,reject) => { const img = n
 $('#save-keepsake').addEventListener('click', async () => {
   const button = $('#save-keepsake'); const original = button.innerHTML; button.disabled = true; button.textContent = 'MENYIAPKAN KENANGAN…';
   try {
-    const files = ['01-background-satin','18-keepsake-frame-jade','13-keepsake-date-card','05-bouquet-stems','19-fan-vermilion','15-keepsake-pearls','20-double-happiness-red'];
+    const files = ['01-background-satin','18-keepsake-frame-jade','13-keepsake-date-card','05-bouquet-stems','19-fan-vermilion','15-keepsake-pearls'];
     const loaded = await Promise.all(files.map(f => loadImage('assets/' + f + '.webp')));
-    await Promise.all([document.fonts.load('700 104px Tangerine'), document.fonts.load('28px \"Viaoda Libre\"')]);
+    await Promise.all([document.fonts.load('700 104px Tangerine'), document.fonts.load('28px "Viaoda Libre"')]);
     await document.fonts.ready;
     const canvas = document.createElement('canvas'); canvas.width=1080; canvas.height=1920; const ctx=canvas.getContext('2d');
     ctx.fillStyle='#153f35';ctx.fillRect(0,0,1080,1920);ctx.globalAlpha=.15;ctx.drawImage(loaded[0],0,0,1080,1920);ctx.globalAlpha=1;
     ctx.strokeStyle='#c8b38a';ctx.lineWidth=2;ctx.strokeRect(38,38,1004,1844);ctx.textAlign='center';ctx.fillStyle='#f7f0e3';
     ctx.font='20px Arial';ctx.fillText('A LITTLE PIECE OF OUR FOREVER',540,160);ctx.font='105px "Tangerine"';ctx.fillText('Our keepsake',540,290);
-    ctx.drawImage(loaded[5],35,355,460,920);
-    ctx.fillStyle='#f2ead8';ctx.beginPath();ctx.ellipse(415,790,190,310,0,0,Math.PI*2);ctx.fill();
-    ctx.drawImage(loaded[1],80,305,660,990);
-    ctx.drawImage(loaded[2],660,700,350,525);
-    ctx.fillStyle='#235540';ctx.font='104px "Tangerine"';ctx.fillText('Cintya',410,680);ctx.font='75px "Tangerine"';ctx.fillText('&',410,805);ctx.font='104px "Tangerine"';ctx.fillText('Hans',410,945);
-    ctx.fillStyle='#55445f';ctx.font='64px "Tangerine"';ctx.fillText('08',835,870);ctx.fillText('Maret',835,960);ctx.fillText('2028',835,1050);
-    ctx.drawImage(loaded[4],-75,1220,750,500);ctx.drawImage(loaded[3],615,1170,420,630);ctx.drawImage(loaded[6],80,1080,150,150);
+    ctx.drawImage(loaded[5],310,230,480,380);
+    ctx.fillStyle='#f2ead8';ctx.beginPath();ctx.ellipse(440,730,185,300,0,0,Math.PI*2);ctx.fill();
+    ctx.drawImage(loaded[1],110,270,660,940);
+    ctx.drawImage(loaded[2],620,620,350,510);
+    ctx.fillStyle='#235540';ctx.font='104px "Tangerine"';ctx.fillText('Cintya',435,650);ctx.font='75px "Tangerine"';ctx.fillText('&',435,765);ctx.font='104px "Tangerine"';ctx.fillText('Hans',435,895);
+    ctx.fillStyle='#55445f';ctx.font='64px "Tangerine"';ctx.fillText('08',795,780);ctx.fillText('Maret',795,870);ctx.fillText('2028',795,960);
+    ctx.drawImage(loaded[4],10,1150,700,470);ctx.drawImage(loaded[3],610,1130,410,610);
     ctx.fillStyle='#f7f0e3';ctx.font='28px "Viaoda Libre"';ctx.fillText('8 Maret 2028 · Bandung',540,1770);ctx.font='17px Arial';ctx.fillText('PERANAKAN BLOOM',540,1830);
     const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
     if (!blob) throw new Error('Export gagal');
