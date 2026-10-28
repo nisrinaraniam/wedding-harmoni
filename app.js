@@ -212,7 +212,7 @@ $('#wishes-form').addEventListener('submit', event => {
 });
 
 function loadImage(src) { return new Promise((resolve,reject) => { const img = new Image(); img.onload=()=>resolve(img); img.onerror=()=>reject(new Error('Gambar tidak dapat dimuat')); img.src=src; }); }
-$('#save-keepsake').addEventListener('click', async () => {
+$('#save-keepsake')?.addEventListener('click', async () => {
   const button = $('#save-keepsake'); const original = button.innerHTML; button.disabled = true; button.textContent = 'MENYIAPKAN KENANGAN…';
   try {
     const files = ['01-background-satin','18-keepsake-frame-jade','13-keepsake-date-card','05-bouquet-stems','19-fan-vermilion','15-keepsake-pearls'];
