@@ -10,6 +10,23 @@
 </head>
 <body class="unopened">
 <a class="skip-link" href="#main">Langsung ke undangan</a>
+<!-- Fallback Screen (riungin.id Private Mode & Device Lock) -->
+<div id="fallback-screen" class="fallback-screen" hidden aria-live="polite">
+  <div class="fallback-curtain-bg" aria-hidden="true"></div>
+  <div class="fallback-card">
+    <div class="fallback-badge">
+      <img src="assets/04-wax-seal.webp" alt="" class="fallback-seal">
+    </div>
+    <h2 class="script fallback-title" id="fallback-title">Undangan Privat</h2>
+    <div class="fine-rule"></div>
+    <p class="fallback-message" id="fallback-message">Undangan ini bersifat privat dan sudah dibuka di perangkat lain.</p>
+    <p class="fallback-sub" id="fallback-sub">Silakan buka kembali tautan undangan melalui perangkat pertama yang Anda gunakan.</p>
+    <div class="fallback-footer">
+      <a href="https://riungin.id" target="_blank" rel="noopener" class="fallback-credit">Developed by riungin.id</a>
+    </div>
+  </div>
+</div>
+
 <div id="opening" class="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
   <div class="curtain curtain-left"></div><div class="curtain curtain-right"></div>
   <div class="transition-card" aria-hidden="true">
@@ -167,7 +184,7 @@
 <section class="rsvp section-mint" id="rsvp">
   <img class="rsvp-seal" src="assets/04-wax-seal.webp" alt="" loading="lazy">
   <div class="section-heading reveal"><p class="eyebrow">A SEAT IS SAVED FOR YOU</p><h2 class="script">Will you be there?</h2><p>Mohon konfirmasi kehadiran sebelum<br><strong>1 Februari 2028</strong>.</p></div>
-  <p class="small-note demo-note">Pratinjau interaktif · belum mengirim konfirmasi kepada mempelai.</p>
+  <p class="small-note demo-note">Konfirmasi kehadiran Anda akan langsung tersimpan di sistem.</p>
   <form id="rsvp-form" class="elegant-form">
     <label for="rsvp-name">NAMA LENGKAP</label><input id="rsvp-name" name="name" placeholder="Nama lengkap Anda" required maxlength="100" autocomplete="name">
     <fieldset><legend>KONFIRMASI KEHADIRAN</legend><label class="radio-label"><input type="radio" name="attendance" value="yes" required><span>Dengan senang hati, hadir</span></label><label class="radio-label"><input type="radio" name="attendance" value="no"><span>Maaf, belum bisa hadir</span></label></fieldset>
@@ -178,7 +195,7 @@
 
 <section class="wishes section-paper" id="wishes">
   <div class="section-heading reveal"><p class="eyebrow">WORDS WE WILL ALWAYS KEEP</p><h2 class="script">Ucapan & doa</h2><p>Titipkan doa dan sepenggal kata untuk kami.</p></div>
-  <p class="small-note demo-note">Ucapan pada pratinjau ini hanya tersimpan di browser Anda.</p>
+  <p class="small-note demo-note">Doa dan harapan terbaik Anda akan tersimpan bersama kami.</p>
   <form id="wishes-form" class="elegant-form">
     <label for="wish-name">NAMA ANDA</label><input id="wish-name" name="name" placeholder="Nama lengkap" required maxlength="100" autocomplete="name">
     <label for="wish-message">UCAPAN & DOA</label><textarea id="wish-message" name="message" placeholder="Tuliskan doa dan harapan terbaik Anda…" required minlength="3" maxlength="1000" rows="4"></textarea>

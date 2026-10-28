@@ -101,3 +101,20 @@
 
 .closing-fan{position:absolute;width:47%;right:-8%;bottom:1%;z-index:3;filter:drop-shadow(0 6px 8px #173e3933);opacity:0;transform:translate(35px,30px) rotate(15deg) scale(0.7);transition:opacity 1.2s cubic-bezier(.22,1,.36,1) .25s,transform 1.2s cubic-bezier(.22,1,.36,1) .25s;will-change:transform,opacity}
 .closing-fan.visible{opacity:1;transform:translate(0,0) rotate(-25deg) scale(1)}
+
+
+/* Fallback Screen for 403 / 404 / Locked (riungin.id) */
+.fallback-screen{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;background:#10392f;padding:24px;overflow:hidden}
+.fallback-screen[hidden]{display:none!important}
+.fallback-curtain-bg{position:absolute;inset:0;background-image:linear-gradient(#0d223a44,#0e233166),url('assets/01-background-satin.webp');background-size:cover;background-position:center;opacity:.85}
+.fallback-card{position:relative;z-index:2;background:#faf5ea;border:1px solid #c4b08b;box-shadow:0 0 0 5px rgba(248,242,229,.4),0 20px 50px rgba(5,20,15,.55);padding:34px 24px 28px;text-align:center;max-width:320px;width:90%;border-radius:3px}
+.fallback-card:before{content:'';position:absolute;inset:7px;border:1px dashed #c4b08b88;pointer-events:none}
+.fallback-badge{width:56px;height:56px;margin:0 auto 12px}
+.fallback-seal{width:100%;height:100%;filter:drop-shadow(0 4px 6px #102b3040)}
+.fallback-title{font-size:36px;color:#184534;line-height:1;margin:0}
+.fallback-card .fine-rule{margin:14px auto;background:#c4b08b}
+.fallback-message{font-family:var(--serif);font-size:14px;line-height:1.5;color:#294b40;margin-bottom:8px}
+.fallback-sub{font-size:12px;line-height:1.45;color:#6b5a4d;font-style:italic}
+.fallback-footer{margin-top:22px;padding-top:14px;border-top:1px solid #ebdcc5}
+.fallback-credit{font:9px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#857560;text-decoration:none;transition:color .25s;display:inline-block}
+.fallback-credit:hover{color:#184534;text-decoration:underline}
