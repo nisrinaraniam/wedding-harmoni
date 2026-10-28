@@ -22,15 +22,14 @@ function getOrCreateDeviceId() {
 // Helper: Extract UID from URL (?uid={uid} or route param /{uid})
 function getGuestUid() {
   const params = new URLSearchParams(window.location.search);
-  const uidParam = params.get('uid');
+  const uidParam = params.get('uid') || params.get('u');
   if (uidParam && uidParam.trim()) return uidParam.trim();
   
-  const segments = window.location.pathname.split('/').filter(Boolean);
-  if (segments.length > 0) {
-    const last = segments[segments.length - 1];
-    if (last && !last.endsWith('.html') && last !== 'cintya-hans' && last !== 'outputs') {
-      return decodeURIComponent(last);
-    }
+  const ignored = ['wedding-harmoni', 'cintya-hans', 'outputs', 'index.html', 'index.htm'];
+  const segments = window.location.pathname.split('/').map(s => s.trim()).filter(Boolean);
+  const valid = segments.filter(s => !ignored.includes(s.toLowerCase()) && !s.endsWith('.html'));
+  if (valid.length > 0) {
+    return decodeURIComponent(valid[valid.length - 1]);
   }
   return null;
 }
