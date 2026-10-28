@@ -103,18 +103,27 @@
 .closing-fan.visible{opacity:1;transform:translate(0,0) rotate(-25deg) scale(1)}
 
 
-/* Fallback Screen for 403 / 404 / Locked (riungin.id) */
-.fallback-screen{position:fixed;inset:0;z-index:999;display:flex;align-items:center;justify-content:center;background:#10392f;padding:24px;overflow:hidden}
+/* Luxurious Wedding Stationary Fallback Screen (riungin.id) */
+.fallback-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px 20px;overflow-y:auto;overflow-x:hidden;background:#0d2430}
 .fallback-screen[hidden]{display:none!important}
-.fallback-curtain-bg{position:absolute;inset:0;background-image:linear-gradient(#0d223a44,#0e233166),url('assets/01-background-satin.webp');background-size:cover;background-position:center;opacity:.85}
-.fallback-card{position:relative;z-index:2;background:#faf5ea;border:1px solid #c4b08b;box-shadow:0 0 0 5px rgba(248,242,229,.4),0 20px 50px rgba(5,20,15,.55);padding:34px 24px 28px;text-align:center;max-width:320px;width:90%;border-radius:3px}
-.fallback-card:before{content:'';position:absolute;inset:7px;border:1px dashed #c4b08b88;pointer-events:none}
-.fallback-badge{width:56px;height:56px;margin:0 auto 12px}
-.fallback-seal{width:100%;height:100%;filter:drop-shadow(0 4px 6px #102b3040)}
-.fallback-title{font-size:36px;color:#184534;line-height:1;margin:0}
-.fallback-card .fine-rule{margin:14px auto;background:#c4b08b}
-.fallback-message{font-family:var(--serif);font-size:14px;line-height:1.5;color:#294b40;margin-bottom:8px}
-.fallback-sub{font-size:12px;line-height:1.45;color:#6b5a4d;font-style:italic}
-.fallback-footer{margin-top:22px;padding-top:14px;border-top:1px solid #ebdcc5}
-.fallback-credit{font:9px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#857560;text-decoration:none;transition:color .25s;display:inline-block}
-.fallback-credit:hover{color:#184534;text-decoration:underline}
+.fallback-backdrop{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,40,56,.45) 0%,rgba(13,31,46,.72) 100%),url('assets/01-background-satin.webp') center/cover no-repeat;pointer-events:none}
+.fallback-container{position:relative;z-index:3;width:100%;max-width:345px;margin:auto;display:flex;flex-direction:column;align-items:center}
+.fallback-ornaments{position:absolute;inset:0;pointer-events:none}
+.fallback-fan{position:absolute;top:-42px;right:-18px;width:130px;transform:rotate(16deg);filter:drop-shadow(0 8px 14px rgba(0,0,0,.42));z-index:1}
+.fallback-tulip{position:absolute;bottom:26px;left:-24px;width:56px;transform:rotate(-14deg);filter:drop-shadow(0 6px 12px rgba(0,0,0,.35));z-index:4}
+.fallback-card{position:relative;z-index:2;width:100%;background:#faf5eb;border:1.5px solid #cbb892;box-shadow:0 0 0 6px rgba(248,242,230,.4),0 25px 50px rgba(4,18,26,.65);border-radius:4px;padding:34px 24px 22px;text-align:center;background-image:radial-gradient(circle at 50% 0%,rgba(255,255,255,.7) 0%,rgba(250,245,235,.95) 75%)}
+.fallback-card::before{content:'';position:absolute;inset:8px;border:1px dashed rgba(196,176,139,.7);pointer-events:none;border-radius:2px}
+.fallback-seal-wrap{width:60px;height:60px;margin:0 auto 12px;position:relative}
+.fallback-seal{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 10px rgba(16,43,48,.45))}
+.fallback-eyebrow{font:700 9px var(--sans,sans-serif);letter-spacing:.22em;text-transform:uppercase;color:#7f6e59;margin-bottom:4px}
+.fallback-title{font-size:38px;color:#154535;line-height:1.1;margin:0 0 8px;font-weight:normal;font-family:'Tangerine',cursive}
+.fallback-rule{width:48px;height:1px;background:#cbb892;margin:0 auto 14px}
+.fallback-message{font-family:var(--serif,'Viaoda Libre',serif);font-size:14.5px;line-height:1.55;color:#1e3a31;margin:0 0 10px;font-weight:500}
+.fallback-sub{font-size:12.5px;line-height:1.5;color:#635345;font-style:italic;margin:0 0 16px}
+.fallback-badge-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(21,69,53,.07);border:1px solid rgba(196,176,139,.65);padding:5px 14px;border-radius:20px;font:10.5px var(--sans,sans-serif);color:#184534;letter-spacing:.05em;margin-bottom:16px}
+.fallback-pill-dot{width:6px;height:6px;border-radius:50%;background:#c0392b;display:inline-block}
+.fallback-pill-dot.warning{background:#d48806}
+.fallback-footer{border-top:1px solid #ebdcc5;padding-top:14px;margin-top:4px;display:flex;flex-direction:column;gap:6px;align-items:center}
+.fallback-couple{font-family:'Tangerine',cursive;font-size:26px;color:#1e3a31;line-height:1;margin:0}
+.fallback-credit{font:9px var(--sans,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:#7a6b57;text-decoration:none;transition:color .2s}
+.fallback-credit:hover{color:#154535;text-decoration:underline}

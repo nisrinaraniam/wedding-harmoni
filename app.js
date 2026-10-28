@@ -38,6 +38,15 @@ function getGuestUid() {
 const currentDeviceId = getOrCreateDeviceId();
 const guestUid = getGuestUid();
 let currentGuest = null;
+let openingBusy = false;
+let openingTimers = [];
+let lastPhotoButton = null;
+let audioContext = null;
+let musicTimer = null;
+let musicOn = false;
+let noteIndex = 0;
+
+
 
 // ==========================================
 // CORE DOM ELEMENTS & NAVIGATION
@@ -86,7 +95,7 @@ function showFallbackScreen(errorInfo) {
   if (openingTimers) openingTimers.forEach(clearTimeout);
   if (musicTimer) clearInterval(musicTimer);
   
-  if (opening) { opening.hidden = true; opening.inert = true; }
+  if (opening) { opening.hidden = true; opening.inert = true; opening.style.display = 'none'; }
   if (main) { main.hidden = true; main.inert = true; }
   if (navigation) { navigation.hidden = true; navigation.inert = true; }
   if (menuToggle) menuToggle.hidden = true;
@@ -96,22 +105,41 @@ function showFallbackScreen(errorInfo) {
   if (musicToggle) musicToggle.hidden = true;
   document.body.classList.remove('unopened');
 
+  const eyebrowEl = $('#fallback-eyebrow');
   const titleEl = $('#fallback-title');
   const msgEl = $('#fallback-message');
   const subEl = $('#fallback-sub');
+  const pillDot = $('#fallback-pill-dot');
+  const pillText = $('#fallback-pill-text');
 
   if (errorInfo.code === 'DEVICE_LOCKED' || errorInfo.locked) {
-    if (titleEl) titleEl.textContent = 'Perangkat Terkunci';
-    if (msgEl) msgEl.textContent = errorInfo.message || 'Undangan ini bersifat privat dan sudah dibuka di perangkat lain.';
-    if (subEl) subEl.textContent = 'Silakan buka kembali tautan undangan melalui perangkat pertama yang Anda gunakan.';
+    if (eyebrowEl) eyebrowEl.textContent = 'PRIVATE & CONFIDENTIAL';
+    if (titleEl) titleEl.textContent = 'Undangan Bersifat Privat';
+    if (msgEl) msgEl.textContent = 'Demi menjaga privasi acara, undangan ini hanya dapat dibuka melalui 1 perangkat pertama yang telah terdaftar.';
+    if (subEl) subEl.textContent = 'Silakan buka kembali tautan undangan melalui ponsel atau perangkat utama yang Anda gunakan sebelumnya.';
+    if (pillText) pillText.textContent = 'Perangkat Terkunci di HP Lain';
+    if (pillDot) { pillDot.className = 'fallback-pill-dot'; }
+  } else if (errorInfo.code === 'NO_UID') {
+    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
+    if (titleEl) titleEl.textContent = 'Tautan Khusus Tamu';
+    if (msgEl) msgEl.textContent = 'Undangan ini tidak bisa dibuka tanpa tautan khusus tamu (UID).';
+    if (subEl) subEl.textContent = 'Silakan periksa kembali tautan undangan resmi yang telah dikirimkan secara personal kepada Anda.';
+    if (pillText) pillText.textContent = 'Kode Tamu (UID) Diperlukan';
+    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
   } else if (errorInfo.code === 'NOT_FOUND' || errorInfo.status === 404) {
+    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
     if (titleEl) titleEl.textContent = 'Undangan Tidak Ditemukan';
     if (msgEl) msgEl.textContent = errorInfo.message || 'Data tamu tidak ditemukan pada sistem.';
     if (subEl) subEl.textContent = 'Pastikan tautan undangan yang Anda buka sudah sesuai dan lengkap.';
+    if (pillText) pillText.textContent = 'Kode Tamu Tidak Valid';
+    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
   } else {
+    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
     if (titleEl) titleEl.textContent = 'Akses Dibatasi';
     if (msgEl) msgEl.textContent = errorInfo.message || 'Mohon maaf, undangan tidak dapat diakses saat ini.';
     if (subEl) subEl.textContent = 'Silakan hubungi mempelai atau coba beberapa saat lagi.';
+    if (pillText) pillText.textContent = 'Akses Dibatasi';
+    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
   }
 
   if (fallbackScreen) {
@@ -215,11 +243,9 @@ if (!guestUid) {
       if ($('#wish-name')) $('#wish-name').value = toParam.trim().slice(0, 100);
     }
   } else {
-    // Mode privat: if no UID in URL, show 404 fallback screen
+    // Mode privat: jika dibuka tanpa UID di URL
     showFallbackScreen({
-      code: 'NOT_FOUND',
-      status: 404,
-      message: 'Data tamu tidak ditemukan'
+      code: 'NO_UID'
     });
   }
 } else {
@@ -229,9 +255,7 @@ if (!guestUid) {
 // ==========================================
 // OPENING ANIMATION SEQUENCE
 // ==========================================
-let openingBusy = false;
-let openingTimers = [];
-let lastPhotoButton = null;
+// (opening variables declared at top)
 
 function finishOpening() {
   opening.classList.add('dismissed');
@@ -667,7 +691,7 @@ wishesForm.addEventListener('submit', async event => {
 // ==========================================
 // BACKGROUND MUSIC BOX (AudioContext)
 // ==========================================
-let audioContext, musicTimer, musicOn = false, noteIndex = 0;
+// (music variables declared at top)
 const phrase = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880, 698.46, 523.25, 659.25, 783.99, 1046.5, 880, 783.99, 659.25, 587.33];
 
 function playTone() {
