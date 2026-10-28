@@ -38,10 +38,12 @@ function openInvitation(skip = false) {
   $('#open-invitation').disabled = true;
   if (skip || reducedMotion.matches) { finishOpening(); return; }
   opening.classList.add('is-opening');
-  openingTimers.push(setTimeout(() => opening.classList.add('opened'), 1250));
-  openingTimers.push(setTimeout(finishOpening, 2450));
+  openingTimers.push(setTimeout(() => opening.classList.add('opened'), 2700));
+  openingTimers.push(setTimeout(finishOpening, 4100));
 }
 $('#open-invitation').addEventListener('click', () => openInvitation());
+$('.envelope-seal')?.addEventListener('click', () => openInvitation());
+$('.envelope-motion')?.addEventListener('click', () => openInvitation());
 $('#skip-opening').addEventListener('click', () => openInvitation(true));
 $('.skip-link').addEventListener('click', () => openInvitation(true));
 opening.addEventListener('keydown', event => {
