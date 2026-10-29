@@ -20,50 +20,6 @@
 </head>
 <body class="unopened">
 <a class="skip-link" href="#main">Langsung ke undangan</a>
-<!-- Fallback Screen (riungin.id Private Mode & Device Lock) -->
-<div id="fallback-screen" class="fallback-screen" hidden aria-live="polite">
-  <div class="fallback-backdrop" aria-hidden="true"></div>
-  <div class="hanging-fixture cover-hanging fixture-left" aria-hidden="true">
-    <span class="pearl-pin"></span>
-    <div class="hanging-item sway"><span class="hanging-cord"></span><img class="pendant-asset" src="assets/09-lampion-peranakan.webp" alt=""></div>
-  </div>
-  <div class="hanging-fixture cover-hanging fixture-right" aria-hidden="true">
-    <span class="pearl-pin"></span>
-    <div class="hanging-item sway"><span class="hanging-cord"></span><img class="pendant-asset" src="assets/09b-lampion-mint.webp" alt=""></div>
-  </div>
-
-  <div class="fallback-container">
-    <div class="fallback-ornaments" aria-hidden="true">
-      <img class="fallback-fan" src="assets/19-fan-vermilion.webp" alt="">
-      <img class="fallback-tulip" src="assets/17-tulip-mini.webp" alt="">
-    </div>
-
-    <div class="fallback-card">
-      <div class="fallback-seal-wrap">
-        <img src="assets/04-wax-seal.webp" alt="" class="fallback-seal">
-      </div>
-      
-      <p class="fallback-eyebrow" id="fallback-eyebrow">THE WEDDING INVITATION</p>
-      <h2 class="script fallback-title" id="fallback-title">Undangan Bersifat Privat</h2>
-      <div class="fallback-rule"></div>
-      
-      <p class="fallback-message" id="fallback-message">Undangan ini tidak bisa dibuka tanpa tautan khusus tamu (UID).</p>
-      <p class="fallback-sub" id="fallback-sub">Silakan periksa kembali tautan undangan resmi yang telah dikirimkan secara personal kepada Anda.</p>
-      
-      <div class="fallback-badge-pill" id="fallback-pill">
-        <span class="fallback-pill-dot" id="fallback-pill-dot"></span>
-        <span id="fallback-pill-text">Kode Tamu (UID) Diperlukan</span>
-      </div>
-
-      <div class="fallback-footer">
-        <p class="fallback-couple">Cintya &amp; Hans</p>
-        <a href="https://riungin.id" target="_blank" rel="noopener" class="fallback-credit">Developed by riungin.id</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
 <div id="opening" class="opening" role="dialog" aria-modal="true" aria-labelledby="opening-title">
   <div class="curtain curtain-left"></div><div class="curtain curtain-right"></div>
   <div class="transition-card" aria-hidden="true">
@@ -221,7 +177,7 @@
 <section class="rsvp section-mint" id="rsvp">
   <img class="rsvp-seal" src="assets/04-wax-seal.webp" alt="" loading="lazy">
   <div class="section-heading reveal"><p class="eyebrow">A SEAT IS SAVED FOR YOU</p><h2 class="script">Will you be there?</h2><p>Mohon konfirmasi kehadiran sebelum<br><strong>1 Februari 2028</strong>.</p></div>
-  <p class="small-note demo-note">Konfirmasi kehadiran Anda akan langsung tersimpan di sistem.</p>
+  <p class="small-note demo-note">Demo katalog · Konfirmasi hanya disimpan di browser ini, tidak dikirim ke mempelai.</p>
   <form id="rsvp-form" class="elegant-form">
     <label for="rsvp-name">NAMA LENGKAP</label><input id="rsvp-name" name="name" placeholder="Nama lengkap Anda" required maxlength="100" autocomplete="name">
     <fieldset><legend>KONFIRMASI KEHADIRAN</legend><label class="radio-label"><input type="radio" name="attendance" value="yes" required><span>Dengan senang hati, hadir</span></label><label class="radio-label"><input type="radio" name="attendance" value="no"><span>Maaf, belum bisa hadir</span></label></fieldset>
@@ -232,7 +188,7 @@
 
 <section class="wishes section-paper" id="wishes">
   <div class="section-heading reveal"><p class="eyebrow">WORDS WE WILL ALWAYS KEEP</p><h2 class="script">Ucapan & doa</h2><p>Titipkan doa dan sepenggal kata untuk kami.</p></div>
-  <p class="small-note demo-note">Doa dan harapan terbaik Anda akan tersimpan bersama kami.</p>
+  <p class="small-note demo-note">Demo katalog · Ucapan hanya tersimpan di browser ini dan tidak dibagikan ke pengunjung lain.</p>
   <form id="wishes-form" class="elegant-form">
     <label for="wish-name">NAMA ANDA</label><input id="wish-name" name="name" placeholder="Nama lengkap" required maxlength="100" autocomplete="name">
     <label for="wish-message">UCAPAN & DOA</label><textarea id="wish-message" name="message" placeholder="Tuliskan doa dan harapan terbaik Anda…" required minlength="3" maxlength="1000" rows="4"></textarea>
@@ -254,7 +210,7 @@
 <dialog id="photo-dialog" class="photo-dialog"><button id="close-photo" aria-label="Tutup foto">×</button><img id="large-photo" alt="Potret kenangan pasangan"><p>Captured in time · Cintya & Hans</p></dialog>
 <div class="toast" id="toast" role="status"></div>
 <noscript><style>.opening{display:none}body{overflow:auto}main{margin-left:0}main[inert]{pointer-events:auto}.reveal{opacity:1}.desktop-art{display:none}</style><p>Aktifkan JavaScript untuk membuka undangan dan menggunakan formulir.</p></noscript>
-<script src="app.js?v=20261028_2"></script>
+<script src="app.js?v=catalogue-20261029"></script>
 </body></html>
 
 
