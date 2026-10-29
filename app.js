@@ -3,40 +3,6 @@ const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-// ==========================================
-// RIUNGIN.ID BACKEND CONFIGURATION
-// ==========================================
-const API_BASE_URL = 'https://api.riungin.id';
-const EVENT_SLUG = 'kadityafikar-421';
-
-// 1. Helper Device ID (localStorage)
-function getOrCreateDeviceId() {
-  let deviceId = localStorage.getItem("bw_device_id");
-  if (!deviceId) {
-    deviceId = "dev_" + Math.random().toString(36).substring(2, 12) + Date.now().toString(36);
-    localStorage.setItem("bw_device_id", deviceId);
-  }
-  return deviceId;
-}
-
-// Helper: Extract UID from URL (?uid={uid} or route param /{uid})
-function getGuestUid() {
-  const params = new URLSearchParams(window.location.search);
-  const uidParam = params.get('uid') || params.get('u');
-  if (uidParam && uidParam.trim()) return uidParam.trim();
-  
-  const ignored = ['wedding-harmoni', 'cintya-hans', 'outputs', 'index.html', 'index.htm'];
-  const segments = window.location.pathname.split('/').map(s => s.trim()).filter(Boolean);
-  const valid = segments.filter(s => !ignored.includes(s.toLowerCase()) && !s.endsWith('.html'));
-  if (valid.length > 0) {
-    return decodeURIComponent(valid[valid.length - 1]);
-  }
-  return null;
-}
-
-const currentDeviceId = getOrCreateDeviceId();
-const guestUid = getGuestUid();
-let currentGuest = null;
 let openingBusy = false;
 let openingTimers = [];
 let lastPhotoButton = null;
@@ -54,7 +20,6 @@ const opening = $('#opening');
 const main = $('#main');
 const navigation = $('#section-menu');
 const menuToggle = $('#menu-toggle');
-const fallbackScreen = $('#fallback-screen');
 const keepsakeCollage = $('#keepsake-collage');
 const rsvpForm = $('#rsvp-form');
 const wishesForm = $('#wishes-form');
@@ -87,168 +52,12 @@ document.addEventListener('click', e => {
   if (!navigation.hidden && !navigation.contains(e.target) && !menuToggle.contains(e.target)) closeMenu();
 });
 
-// ==========================================
-// FALLBACK SCREEN (HTTP 403 / 404 / ERROR)
-// ==========================================
-function showFallbackScreen(errorInfo) {
-  if (openingTimers) openingTimers.forEach(clearTimeout);
-  if (musicTimer) clearInterval(musicTimer);
-  
-  if (opening) { opening.hidden = true; opening.inert = true; opening.style.display = 'none'; }
-  if (main) { main.hidden = true; main.inert = true; }
-  if (navigation) { navigation.hidden = true; navigation.inert = true; }
-  if (menuToggle) menuToggle.hidden = true;
-  const desktopArt = $('.desktop-art');
-  if (desktopArt) desktopArt.hidden = true;
-  const musicToggle = $('#music-toggle');
-  if (musicToggle) musicToggle.hidden = true;
-  document.body.classList.remove('unopened');
-
-  const eyebrowEl = $('#fallback-eyebrow');
-  const titleEl = $('#fallback-title');
-  const msgEl = $('#fallback-message');
-  const subEl = $('#fallback-sub');
-  const pillDot = $('#fallback-pill-dot');
-  const pillText = $('#fallback-pill-text');
-
-  if (errorInfo.code === 'DEVICE_LOCKED' || errorInfo.locked) {
-    if (eyebrowEl) eyebrowEl.textContent = 'PRIVATE & CONFIDENTIAL';
-    if (titleEl) titleEl.textContent = 'Undangan Bersifat Privat';
-    if (msgEl) msgEl.textContent = 'Demi menjaga privasi acara, undangan ini hanya dapat dibuka melalui 1 perangkat pertama yang telah terdaftar.';
-    if (subEl) subEl.textContent = 'Silakan buka kembali tautan undangan melalui ponsel atau perangkat utama yang Anda gunakan sebelumnya.';
-    if (pillText) pillText.textContent = 'Perangkat Terkunci di HP Lain';
-    if (pillDot) { pillDot.className = 'fallback-pill-dot'; }
-  } else if (errorInfo.code === 'NO_UID') {
-    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
-    if (titleEl) titleEl.textContent = 'Tautan Khusus Tamu';
-    if (msgEl) msgEl.textContent = 'Undangan ini tidak bisa dibuka tanpa tautan khusus tamu (UID).';
-    if (subEl) subEl.textContent = 'Silakan periksa kembali tautan undangan resmi yang telah dikirimkan secara personal kepada Anda.';
-    if (pillText) pillText.textContent = 'Kode Tamu (UID) Diperlukan';
-    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
-  } else if (errorInfo.code === 'NOT_FOUND' || errorInfo.status === 404) {
-    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
-    if (titleEl) titleEl.textContent = 'Undangan Tidak Ditemukan';
-    if (msgEl) msgEl.textContent = errorInfo.message || 'Data tamu tidak ditemukan pada sistem.';
-    if (subEl) subEl.textContent = 'Pastikan tautan undangan yang Anda buka sudah sesuai dan lengkap.';
-    if (pillText) pillText.textContent = 'Kode Tamu Tidak Valid';
-    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
-  } else {
-    if (eyebrowEl) eyebrowEl.textContent = 'THE WEDDING INVITATION';
-    if (titleEl) titleEl.textContent = 'Akses Dibatasi';
-    if (msgEl) msgEl.textContent = errorInfo.message || 'Mohon maaf, undangan tidak dapat diakses saat ini.';
-    if (subEl) subEl.textContent = 'Silakan hubungi mempelai atau coba beberapa saat lagi.';
-    if (pillText) pillText.textContent = 'Akses Dibatasi';
-    if (pillDot) { pillDot.className = 'fallback-pill-dot warning'; }
-  }
-
-  if (fallbackScreen) {
-    fallbackScreen.hidden = false;
-  }
-}
-
-// ==========================================
-// 2. LOAD DATA TAMU & VALIDASI (GET)
-// ==========================================
-async function loadGuestData() {
-  if (!guestUid) return null;
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/events/${EVENT_SLUG}/rsvp/${encodeURIComponent(guestUid)}?deviceId=${encodeURIComponent(currentDeviceId)}`, {
-      method: 'GET',
-      headers: {
-        'x-device-id': currentDeviceId
-      }
-    });
-
-    if (res.status === 200) {
-      const data = await res.json();
-      currentGuest = data;
-      
-      // Bind guest name to greeting in UI
-      if (data.name) {
-        $$('.guest-name').forEach(el => el.textContent = data.name.slice(0, 100));
-        if ($('#rsvp-name')) $('#rsvp-name').value = data.name.slice(0, 100);
-        if ($('#wish-name')) $('#wish-name').value = data.name.slice(0, 100);
-      }
-
-      // Prefill RSVP if guest.rsvpStatus !== "pending"
-      if (data.rsvpStatus && data.rsvpStatus !== 'pending') {
-        const isAttending = data.rsvpStatus === 'attending';
-        const radio = $(`input[name="attendance"][value="${isAttending ? 'yes' : 'no'}"]`, rsvpForm);
-        if (radio) radio.checked = true;
-
-        if (data.pax && $('#rsvp-guests')) {
-          $('#rsvp-guests').value = String(Math.min(4, Math.max(1, data.pax)));
-        }
-
-        updateGuests();
-
-        const statusEl = $('.form-status', rsvpForm);
-        if (statusEl) {
-          statusEl.textContent = isAttending
-            ? `Status kehadiran: Hadir (${data.pax || 1} orang). Anda dapat memperbarui konfirmasi di bawah.`
-            : `Status kehadiran: Tidak dapat hadir. Anda dapat memperbarui konfirmasi di bawah.`;
-        }
-      }
-
-      if (data.rsvpMessage && $('#wish-message') && !$('#wish-message').value) {
-        $('#wish-message').value = data.rsvpMessage;
-      }
-      return data;
-    } else {
-      let errData = {};
-      try { errData = await res.json(); } catch(e) {}
-      if (res.status === 403 || errData.code === 'DEVICE_LOCKED' || errData.locked) {
-        showFallbackScreen({
-          code: 'DEVICE_LOCKED',
-          status: 403,
-          message: errData.error || 'Undangan ini bersifat privat dan sudah dibuka di perangkat lain.'
-        });
-      } else if (res.status === 404) {
-        showFallbackScreen({
-          code: 'NOT_FOUND',
-          status: 404,
-          message: errData.error || 'Data tamu tidak ditemukan'
-        });
-      } else {
-        showFallbackScreen({
-          code: 'ERROR',
-          status: res.status,
-          message: errData.error || 'Terjadi kesalahan saat memuat data undangan.'
-        });
-      }
-      return null;
-    }
-  } catch (err) {
-    console.error('Failed to load guest data:', err);
-    showFallbackScreen({
-      code: 'NETWORK_ERROR',
-      status: 0,
-      message: 'Koneksi ke server gagal. Pastikan perangkat Anda terhubung ke internet.'
-    });
-    return null;
-  }
-}
-
-// Initial guest check on startup
-const searchParams = new URLSearchParams(window.location.search);
-const isPreviewMode = searchParams.has('demo') || searchParams.has('preview') || (searchParams.has('to') && !guestUid);
-
-if (!guestUid) {
-  if (isPreviewMode) {
-    const toParam = searchParams.get('to');
-    if (toParam && toParam.trim()) {
-      $$('.guest-name').forEach(el => el.textContent = toParam.trim().slice(0, 100));
-      if ($('#rsvp-name')) $('#rsvp-name').value = toParam.trim().slice(0, 100);
-      if ($('#wish-name')) $('#wish-name').value = toParam.trim().slice(0, 100);
-    }
-  } else {
-    // Mode privat: jika dibuka tanpa UID di URL
-    showFallbackScreen({
-      code: 'NO_UID'
-    });
-  }
-} else {
-  loadGuestData();
+// Optional catalogue greeting; no guest authentication or device tracking.
+const guestName = new URLSearchParams(location.search).get('to')?.trim().slice(0, 100);
+if (guestName) {
+  $$('.guest-name').forEach(el => el.textContent = guestName);
+  $('#rsvp-name').value = guestName;
+  $('#wish-name').value = guestName;
 }
 
 // ==========================================
@@ -431,7 +240,7 @@ $$('.copy-account').forEach(button => button.addEventListener('click', async () 
   }
 }));
 
-// LocalStorage helpers for offline fallback
+// Catalogue demo data stays in this browser only.
 function readStore(key, fallback) {
   try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
 }
@@ -454,95 +263,33 @@ updateGuests();
 
 $('#rsvp-name').addEventListener('input', () => $('#rsvp-name').setCustomValidity(''));
 
-// ==========================================
-// 3. SUBMIT FORM RSVP (POST)
-// ==========================================
-rsvpForm.addEventListener('submit', async event => {
+const savedRsvp = readStore(RSVP_KEY, null);
+if (savedRsvp && typeof savedRsvp.name === 'string') {
+  $('#rsvp-name').value = savedRsvp.name.slice(0, 100);
+  const attendance = savedRsvp.attendance === 'no' ? 'no' : 'yes';
+  $(`input[name="attendance"][value="${attendance}"]`, rsvpForm).checked = true;
+  $('#rsvp-guests').value = String(Math.min(4, Math.max(1, Number(savedRsvp.guests) || 1)));
+  updateGuests();
+}
+
+rsvpForm.addEventListener('submit', event => {
   event.preventDefault();
   if (!rsvpForm.reportValidity()) return;
   const data = new FormData(rsvpForm);
-  const name = String(data.get('name') || (currentGuest ? currentGuest.name : '')).trim();
+  const name = String(data.get('name') || '').trim();
   if (!name) {
     $('#rsvp-name').setCustomValidity('Mohon isi nama Anda.');
     $('#rsvp-name').reportValidity();
     return;
   }
-  const attendance = data.get('attendance');
-  const isAttending = attendance === 'yes';
-  const pax = isAttending ? Math.max(1, Number(data.get('guests') || 1)) : 0;
-  const wishMessage = $('#wish-message') ? $('#wish-message').value.trim() : (currentGuest?.rsvpMessage || '');
+  const attendance = data.get('attendance') === 'no' ? 'no' : 'yes';
+  const guests = attendance === 'yes' ? Math.min(4, Math.max(1, Number(data.get('guests')) || 1)) : 0;
+  const saved = writeStore(RSVP_KEY, { name, attendance, guests, updatedAt: new Date().toISOString() });
   const status = $('.form-status', rsvpForm);
-  const submitButton = $('button[type="submit"]', rsvpForm);
-  const originalBtnText = submitButton ? submitButton.innerHTML : 'KONFIRMASI KEHADIRAN';
-
-  // Visual feedback: loading state
-  if (submitButton) {
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'MENGIRIM KONFIRMASI…';
-  }
-  status.textContent = 'Mengirim konfirmasi kehadiran…';
-  status.classList.remove('error');
-
-  const payload = {
-    uid: guestUid || (currentGuest ? currentGuest.uid : 'guest'),
-    name: name,
-    deviceId: currentDeviceId,
-    rsvpStatus: isAttending ? 'attending' : 'not_attending',
-    pax: pax,
-    rsvp_message: wishMessage
-  };
-
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/events/${EVENT_SLUG}/rsvp`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-device-id': currentDeviceId
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (res.ok) {
-      if (currentGuest) {
-        currentGuest.rsvpStatus = payload.rsvpStatus;
-        currentGuest.pax = payload.pax;
-        currentGuest.name = payload.name;
-      }
-      status.textContent = isAttending
-        ? `Terima kasih, ${name}! Konfirmasi kehadiran Anda (${pax} orang) berhasil dikirim.`
-        : `Terima kasih, ${name}. Konfirmasi Anda telah tersimpan.`;
-      status.classList.remove('error');
-      toast('Konfirmasi kehadiran berhasil dikirim.');
-      // Refresh wishes list
-      fetchWishes();
-    } else {
-      let errData = {};
-      try { errData = await res.json(); } catch(e) {}
-      if (res.status === 403 || errData.code === 'DEVICE_LOCKED' || errData.locked) {
-        status.textContent = errData.error || 'Akses ditolak: perangkat Anda terkunci.';
-        status.classList.add('error');
-        showFallbackScreen({ code: 'DEVICE_LOCKED', message: errData.error });
-      } else {
-        status.textContent = errData.error || 'Gagal mengirim konfirmasi. Silakan coba beberapa saat lagi.';
-        status.classList.add('error');
-      }
-    }
-  } catch (err) {
-    console.error('RSVP submission error:', err);
-    writeStore(RSVP_KEY, { name, attendance, guests: pax, updatedAt: new Date().toISOString() });
-    status.textContent = 'Koneksi gagal. Konfirmasi tersimpan sementara di browser Anda.';
-    status.classList.remove('error');
-  } finally {
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.innerHTML = originalBtnText;
-    }
-  }
+  status.classList.toggle('error', !saved);
+  status.textContent = saved ? 'Konfirmasi demo tersimpan di browser ini.' : 'Penyimpanan browser tidak tersedia. Konfirmasi belum tersimpan.';
 });
 
-// ==========================================
-// 4. DAFTAR WISHES & PRAYERS (GET) & SUBMIT
-// ==========================================
 function getLocalWishes() {
   const records = readStore(WISHES_KEY, []);
   return Array.isArray(records) ? records.filter(x => typeof x?.name === 'string' && typeof (x?.rsvp_message || x?.message) === 'string').slice(0, 50) : [];
@@ -554,6 +301,7 @@ function renderWishesList(wishes) {
   container.replaceChildren();
 
   const valid = Array.isArray(wishes) ? wishes.filter(w => {
+    if (!w || typeof w !== 'object') return false;
     const msg = w.rsvp_message || w.rsvpMessage || w.message;
     return typeof w.name === 'string' && typeof msg === 'string' && msg.trim().length > 0;
   }) : [];
@@ -586,105 +334,31 @@ function renderWishesList(wishes) {
   }
 }
 
-async function fetchWishes() {
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/events/${EVENT_SLUG}/wishes`, {
-      method: 'GET'
-    });
-    if (res.ok) {
-      const wishes = await res.json();
-      if (Array.isArray(wishes)) {
-        renderWishesList(wishes);
-        return wishes;
-      }
-    }
-  } catch (err) {
-    console.error('Failed to fetch wishes from API:', err);
-  }
-  // Local fallback
-  renderWishesList(getLocalWishes());
-}
+renderWishesList(getLocalWishes());
 
-fetchWishes();
-
-wishesForm.addEventListener('submit', async event => {
+wishesForm.addEventListener('submit', event => {
   event.preventDefault();
   if (!wishesForm.reportValidity()) return;
   const data = new FormData(wishesForm);
-  const name = String(data.get('name') || (currentGuest ? currentGuest.name : '')).trim();
+  const name = String(data.get('name') || '').trim();
   const message = String(data.get('message') || '').trim();
   const status = $('.form-status', wishesForm);
-  const submitButton = $('button[type="submit"]', wishesForm);
-  const originalBtnText = submitButton ? submitButton.innerHTML : 'KIRIM UCAPAN <span>♡</span>';
-
   if (!name || message.length < 3) {
     status.textContent = 'Mohon lengkapi nama dan ucapan Anda (minimal 3 karakter).';
     status.classList.add('error');
     return;
   }
-
-  if (submitButton) {
-    submitButton.disabled = true;
-    submitButton.innerHTML = 'MENGIRIM UCAPAN…';
+  const records = [{ name, message, createdAt: new Date().toISOString() }, ...getLocalWishes()].slice(0, 50);
+  const saved = writeStore(WISHES_KEY, records);
+  status.classList.toggle('error', !saved);
+  if (!saved) {
+    status.textContent = 'Penyimpanan browser tidak tersedia. Ucapan belum tersimpan; silakan coba lagi.';
+    return;
   }
-  status.textContent = 'Mengirim ucapan & doa…';
-  status.classList.remove('error');
-
-  const payload = {
-    uid: guestUid || (currentGuest ? currentGuest.uid : 'guest'),
-    name: name,
-    deviceId: currentDeviceId,
-    rsvpStatus: (currentGuest && currentGuest.rsvpStatus && currentGuest.rsvpStatus !== 'pending')
-      ? currentGuest.rsvpStatus
-      : 'attending',
-    pax: (currentGuest && currentGuest.pax) ? currentGuest.pax : 1,
-    rsvp_message: message
-  };
-
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/events/${EVENT_SLUG}/rsvp`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-device-id': currentDeviceId
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (res.ok) {
-      status.textContent = 'Terima kasih! Ucapan & doa Anda telah tersimpan.';
-      status.classList.remove('error');
-      $('#wish-message').value = '';
-      toast('Ucapan berhasil dikirim.');
-      // Refresh wishes list
-      fetchWishes();
-    } else {
-      let errData = {};
-      try { errData = await res.json(); } catch(e) {}
-      if (res.status === 403 || errData.code === 'DEVICE_LOCKED' || errData.locked) {
-        status.textContent = errData.error || 'Akses ditolak: perangkat Anda terkunci.';
-        status.classList.add('error');
-        showFallbackScreen({ code: 'DEVICE_LOCKED', message: errData.error });
-      } else {
-        status.textContent = errData.error || 'Gagal mengirim ucapan. Silakan coba lagi.';
-        status.classList.add('error');
-      }
-    }
-  } catch (err) {
-    console.error('Wishes submission error:', err);
-    const records = getLocalWishes();
-    records.unshift({ name, rsvp_message: message, createdAt: new Date().toISOString() });
-    writeStore(WISHES_KEY, records.slice(0, 50));
-    renderWishesList(records);
-    $('#wish-message').value = '';
-    status.textContent = 'Koneksi gagal. Ucapan tersimpan di penyimpanan browser Anda.';
-    status.classList.remove('error');
-  } finally {
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.innerHTML = originalBtnText;
-    }
-  }
+  renderWishesList(records);
+  $('#wish-message').value = '';
+  status.textContent = 'Terima kasih! Ucapan demo tersimpan di browser ini.';
+  toast('Ucapan tersimpan di browser ini.');
 });
 
 // ==========================================
