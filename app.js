@@ -6,10 +6,13 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 let openingBusy = false;
 let openingTimers = [];
 let lastPhotoButton = null;
-let audioContext = null;
-let musicTimer = null;
-let musicOn = false;
-let noteIndex = 0;
+let musicStarted = false;
+let musicUserPaused = false;
+let musicAutoPaused = false;
+const bgAudio = new Audio('./assets/wedding-music.mp3');
+bgAudio.loop = true;
+bgAudio.volume = 0.5;
+bgAudio.preload = 'metadata';
 
 
 
@@ -86,6 +89,7 @@ function openInvitation(skip = false) {
   openingTimers.forEach(clearTimeout);
   openingTimers = [];
   openingBusy = true;
+  startMusic();
   $('#open-invitation').disabled = true;
   if (skip || reducedMotion.matches) { finishOpening(); return; }
   
@@ -363,44 +367,87 @@ wishesForm.addEventListener('submit', event => {
 });
 
 // ==========================================
-// BACKGROUND MUSIC BOX (AudioContext)
+// BACKGROUND MUSIC (Auto-play on open & Auto-pause on unfocus)
 // ==========================================
-// (music variables declared at top)
-const phrase = [523.25, 659.25, 783.99, 659.25, 587.33, 698.46, 880, 698.46, 523.25, 659.25, 783.99, 1046.5, 880, 783.99, 659.25, 587.33];
-
-function playTone() {
-  if (!musicOn || !audioContext) return;
-  const osc = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-  osc.type = 'sine';
-  osc.frequency.value = phrase[noteIndex++ % phrase.length];
-  const now = audioContext.currentTime;
-  gain.gain.setValueAtTime(0, now);
-  gain.gain.linearRampToValueAtTime(.045, now + .025);
-  gain.gain.exponentialRampToValueAtTime(.0001, now + 1.7);
-  osc.connect(gain);
-  gain.connect(audioContext.destination);
-  osc.start(now);
-  osc.stop(now + 1.8);
+function syncMusicButton() {
+  const button = $('#music-toggle');
+  if (!button) return;
+  const playing = !bgAudio.paused && !bgAudio.muted;
+  button.setAttribute('aria-pressed', String(playing));
+  button.setAttribute('aria-label', playing ? 'Jeda musik' : 'Putar musik');
 }
 
-$('#music-toggle').addEventListener('click', async () => {
-  const button = $('#music-toggle');
-  try {
-    if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    musicOn = !musicOn;
-    if (musicOn) {
-      await audioContext.resume();
-      playTone();
-      musicTimer = setInterval(playTone, 750);
-    } else {
-      clearInterval(musicTimer);
-      await audioContext.suspend();
-    }
-    button.setAttribute('aria-pressed', String(musicOn));
-    button.setAttribute('aria-label', musicOn ? 'Jeda musik' : 'Putar musik');
-  } catch {
-    musicOn = false;
-    toast('Musik tidak tersedia di browser ini.');
+function isWindowUnfocused() {
+  return document.hidden || (typeof document.hasFocus === 'function' && !document.hasFocus());
+}
+
+function pauseMusicForUnfocus() {
+  if (!bgAudio.paused) {
+    musicAutoPaused = !musicUserPaused && !bgAudio.muted;
+    bgAudio.pause();
   }
+}
+
+function resumeMusicOnFocus() {
+  if (!musicStarted || musicUserPaused || !musicAutoPaused || isWindowUnfocused()) return;
+  musicAutoPaused = false;
+  if (bgAudio.paused && !bgAudio.muted) {
+    const p = bgAudio.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  }
+}
+
+function startMusic() {
+  if (musicStarted) return;
+  musicStarted = true;
+  musicUserPaused = false;
+  musicAutoPaused = false;
+  bgAudio.muted = false;
+  if (isWindowUnfocused()) {
+    musicAutoPaused = true;
+    syncMusicButton();
+    return;
+  }
+  const p = bgAudio.play();
+  if (p && typeof p.then === 'function') {
+    p.then(() => {
+      if (isWindowUnfocused()) {
+        musicAutoPaused = !musicUserPaused && !bgAudio.muted;
+        bgAudio.pause();
+      }
+    }).catch(() => {});
+  }
+  syncMusicButton();
+}
+
+bgAudio.addEventListener('play', syncMusicButton);
+bgAudio.addEventListener('pause', syncMusicButton);
+window.addEventListener('blur', () => {
+  if (document.activeElement && document.activeElement.tagName === 'IFRAME') return;
+  pauseMusicForUnfocus();
+});
+window.addEventListener('pagehide', pauseMusicForUnfocus);
+window.addEventListener('focus', resumeMusicOnFocus);
+window.addEventListener('pageshow', resumeMusicOnFocus);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) pauseMusicForUnfocus();
+  else resumeMusicOnFocus();
+});
+
+$('#music-toggle').addEventListener('click', () => {
+  if (bgAudio.paused || bgAudio.muted) {
+    musicStarted = true;
+    musicUserPaused = false;
+    musicAutoPaused = false;
+    bgAudio.muted = false;
+    const p = bgAudio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(() => toast('Musik tidak tersedia di browser ini.'));
+    }
+  } else {
+    musicUserPaused = true;
+    musicAutoPaused = false;
+    bgAudio.pause();
+  }
+  syncMusicButton();
 });

@@ -127,3 +127,40 @@
 .fallback-couple{font-family:'Tangerine',cursive;font-size:26px;color:#1e3a31;line-height:1;margin:0}
 .fallback-credit{font:9px var(--sans,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:#7a6b57;text-decoration:none;transition:color .2s}
 .fallback-credit:hover{color:#154535;text-decoration:underline}
+
+/* Smooth staggered scroll-reveal (GPU-composited via independent translate/scale) */
+.sr-root.sr-active .sr-item[data-sr='out'] {
+  opacity: 0;
+  will-change: opacity, translate, scale;
+}
+.sr-root.sr-active .sr-item[data-sr='out']:not([data-sr-fade='true']) {
+  translate: var(--sr-x, 0px) var(--sr-y, 18px);
+  scale: var(--sr-scale, 1);
+}
+.sr-root.sr-active .sr-item[data-sr='in'] {
+  will-change: opacity, translate, scale;
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--sr-delay, 0ms),
+    translate 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--sr-delay, 0ms),
+    scale 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--sr-delay, 0ms);
+}
+.sr-root.sr-active .sr-item[data-sr='out']:focus-within {
+  opacity: 1;
+  transition: none;
+}
+.sr-root.sr-active .sr-item[data-sr='out']:not([data-sr-fade='true']):focus-within {
+  translate: none;
+  scale: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sr-root .sr-item[data-sr='out'] {
+    opacity: 1;
+    translate: none;
+    scale: 1;
+    will-change: auto;
+  }
+  .sr-root .sr-item[data-sr='in'] {
+    transition: none;
+    will-change: auto;
+  }
+}
